@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import House from '../House/House';
 import axios from 'axios';
+import './Dashboard.css';
 
 class Dashboard extends Component {
   constructor() {
@@ -39,10 +40,15 @@ class Dashboard extends Component {
       )
     })
     return(
-      <div>
-        Dashboard
-        <button onClick={() => this.addNewProperty()}>Add New Property</button>
-        {houses}
+      <div className='dashboard-container'>
+        <div className='dashboard-head'>
+            <h2>Dashboard</h2>
+            <button className='button' onClick={() => this.addNewProperty()}>Add New Property</button>
+        </div>
+        <h2>Home Listings</h2>
+        <div>
+          {houses}
+        </div>
       </div>
     )
   }

@@ -9,7 +9,9 @@ class App extends Component {
     return (
       <div>
         <Header />
-        {routes}
+        <div className='wrapper'>
+          {routes}
+        </div>
       </div>
     );
   }

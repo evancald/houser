@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Wizard.css';
 
 class Wizard extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Wizard extends Component {
 
   render() {
     return (
-      <div>
+      <div className='wizard-container'>
         Wizard
         <button onClick={() => this.cancel()}>Cancel</button>
         <input onChange={(e) => this.handleChange(e.target.value, 'name')} value={this.state.name} placeholder='name'></input>

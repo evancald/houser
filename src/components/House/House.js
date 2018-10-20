@@ -1,9 +1,10 @@
 import React from 'react';
+import './House.css';
 
 function House(props) {
   const {id, name, address, city, state, zip} = props;
   return(
-    <div>
+    <div className='house-container'>
       <div>{name}</div>
       <div>{address}</div>
       <div>{city}</div>
