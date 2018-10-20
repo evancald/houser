@@ -11,21 +11,30 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8080/api/houses')
-    .then(response => {
-      this.setState({houses: response.data});
-    })
+    this.getHouses();
   }
 
   addNewProperty = () => {
     this.props.history.push('/wizard');
   }
 
+  getHouses = () => {
+    axios.get('http://localhost:8080/api/houses')
+    .then(response => {
+      this.setState({houses: response.data});
+    })
+  }
+
+  deleteHouse = (id) => {
+    axios.delete(`http://localhost:8080/api/houses/${id}`)
+      .then(() => this.getHouses());
+  }
+
   render() {
     const houses = this.state.houses.map((house, i) => {
       return(
         <div key={i}>
-          <House name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip}/>
+          <House id={house.id} name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} deleteHouse={this.deleteHouse}/>
         </div>
       )
     })

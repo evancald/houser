@@ -1,7 +1,7 @@
 import React from 'react';
 
 function House(props) {
-  const {name, address, city, state, zip} = props;
+  const {id, name, address, city, state, zip} = props;
   return(
     <div>
       <div>{name}</div>
@@ -9,7 +9,7 @@ function House(props) {
       <div>{city}</div>
       <div>{state}</div>
       <div>{zip}</div>
-      <button>Delete</button>
+      <button onClick={() => props.deleteHouse(id)}>Delete</button>
     </div>
   )
 }

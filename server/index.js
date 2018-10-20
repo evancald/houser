@@ -21,6 +21,7 @@ massive(process.env.DATABASE_STRING, { scripts: __dirname + '/db'})
 //Endpoints
 app.get('/api/houses', controller.getHouses);
 app.post('/api/houses', controller.addHouse);
+app.delete('/api/houses/:id', controller.deleteHouse);
 
 const port = 8080;
 

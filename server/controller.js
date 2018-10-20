@@ -9,5 +9,11 @@ module.exports = {
     req.app.get('db').add_house([name, address, city, state, zip]).then( () => {
       res.status(200).send('added house successfully');
     })
+  },
+  deleteHouse: (req, res) => {
+    const id = req.params.id;
+    req.app.get('db').delete_house([id]).then( () => {
+      res.status(200).send('deleted house successfully');
+    })
   }
 }
