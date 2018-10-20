@@ -1,9 +1,15 @@
 import React from 'react';
 
-function House() {
+function House(props) {
+  const {name, address, city, state, zip} = props;
   return(
     <div>
-      House
+      <div>{name}</div>
+      <div>{address}</div>
+      <div>{city}</div>
+      <div>{state}</div>
+      <div>{zip}</div>
+      <button>Delete</button>
     </div>
   )
 }

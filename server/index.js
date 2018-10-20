@@ -3,8 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const controller = require('./controller');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 massive(process.env.DATABASE_STRING, { scripts: __dirname + '/db'})
@@ -15,6 +17,9 @@ massive(process.env.DATABASE_STRING, { scripts: __dirname + '/db'})
   .catch(err => {
     console.log('database connection error', err);
   })
+
+//Endpoints
+app.get('/api/houses', controller.getHouses);
 
 const port = 8080;
 
