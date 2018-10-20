@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Wizard extends Component {
   constructor() {
@@ -16,6 +17,19 @@ class Wizard extends Component {
     this.setState({[toUpdate]: value});
   }
 
+  addHouse = () => {
+    axios.post('http://localhost:8080/api/houses', {
+      name: this.state.name,
+      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip
+    }).then( () => {
+      this.props.history.push('/');
+    })
+
+  }
+
   cancel = () => {
     this.props.history.push('/');
   }
@@ -30,6 +44,7 @@ class Wizard extends Component {
         <input onChange={(e) => this.handleChange(e.target.value, 'city')} value={this.state.city} placeholder='city'></input>
         <input onChange={(e) => this.handleChange(e.target.value, 'state')} value={this.state.state} placeholder='state'></input>
         <input onChange={(e) => this.handleChange(e.target.value, 'zip')} value={this.state.zip} placeholder='zip'></input>
+        <button onClick={this.addHouse}>Complete</button>
       </div>
     )
   }
