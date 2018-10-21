@@ -4,20 +4,6 @@ import { connect } from 'react-redux';
 import { updateName, updateAddress, updateCity, updateUsState, updateZip } from '../../ducks/reducer';
 
 class StepOne extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      usState: '',
-      zip: 55555
-    }
-  }
-
-  handleChange = (value, toUpdate) => {
-    this.setState({[toUpdate]: value});
-  }
 
   nextStep = () => {
     this.props.history.push('/wizard/step2');

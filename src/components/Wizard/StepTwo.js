@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import './Wizard.css';
+import { connect } from 'react-redux';
+import { updateImg } from '../../ducks/reducer';
 
 class StepTwo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      img: ''
-    }
-  }
-
-  handleChange = (value, toUpdate) => {
-    this.setState({[toUpdate]: value});
-  }
 
   nextStep = () => {
     this.props.history.push('/wizard/step3');
@@ -22,9 +14,10 @@ class StepTwo extends Component {
   }
 
   render() {
+    const { updateImg } = this.props;
     return (
       <div className='wizard-container'>
-        <input onChange={(e) => this.handleChange(e.target.value, 'img')} value={this.state.img} placeholder='Image URL'></input>
+        <input onChange={(e) => updateImg(e.target.value)} value={this.props.img} placeholder='Image URL'></input>
         <button onClick={this.nextStep}>Next</button>
         <button onClick={this.previousStep}>Back</button>
       </div>
@@ -32,4 +25,11 @@ class StepTwo extends Component {
   }
 }
 
-export default StepTwo;
+const mapStateToProps = (state) => {
+  const { img } = state;
+  return {
+    img
+  }
+}
+
+export default connect(mapStateToProps, { updateImg })(StepTwo);

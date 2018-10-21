@@ -3,7 +3,7 @@ const initialState = {
   address: '',
   city: '',
   usState: '',
-  zip: 99999,
+  zip: 90210,
   img: '',
   mortgage: 0,
   rent: 0
@@ -14,6 +14,9 @@ const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
 const UPDATE_CITY = 'UPDATE_CITY';
 const UPDATE_USSTATE = 'UPDATE_USSTATE';
 const UPDATE_ZIP = 'UPDATE_ZIP';
+const UPDATE_IMG = 'UPDATE_IMG';
+const UPDATE_MORTGAGE = 'UPDATE_MORTGAGE';
+const UPDATE_RENT = 'UPDATE_RENT';
 
 function reducer(state = initialState, action) {
   switch(action.type) {
@@ -27,6 +30,12 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, {usState: action.payload});
     case UPDATE_ZIP:
       return Object.assign({}, state, {zip: action.payload});
+    case UPDATE_IMG:
+      return Object.assign({}, state, {img: action.payload});
+    case UPDATE_MORTGAGE:
+      return Object.assign({}, state, {mortgage: action.payload});
+    case UPDATE_RENT:
+      return Object.assign({}, state, {rent: action.payload});
     default:
       return state;
   }
@@ -64,6 +73,27 @@ export function updateZip(zip) {
   return {
     type: UPDATE_ZIP,
     payload: zip
+  }
+}
+
+export function updateImg(img) {
+  return {
+    type: UPDATE_IMG,
+    payload: img
+  }
+}
+
+export function updateMortgage(mortgage) {
+  return {
+    type: UPDATE_MORTGAGE,
+    payload: mortgage
+  }
+}
+
+export function updateRent(rent) {
+  return {
+    type: UPDATE_RENT,
+    payload: rent
   }
 }
 

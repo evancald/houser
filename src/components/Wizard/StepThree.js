@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { updateMortgage, updateRent } from '../../ducks/reducer';
 import './Wizard.css';
 
 class StepThree extends Component {
-  constructor() {
-    super();
-    this.state = {
-      mortgage: 0,
-      rent: 0
-    }
-  }
 
   addHouse = () => {
     axios.post('http://localhost:8080/api/houses', {
-      name: this.state.name,
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip
+      name: this.props.name,
+      address: this.props.address,
+      city: this.props.city,
+      state: this.props.usState,
+      zip: this.props.zip
     }).then( () => {
       this.props.history.push('/');
     })
-  }
-
-  handleChange = (value, toUpdate) => {
-    this.setState({[toUpdate]: value});
   }
 
   previousStep = () => {
@@ -32,10 +23,13 @@ class StepThree extends Component {
   }
 
   render() {
+    const { updateMortgage,  updateRent } = this.props;
     return (
       <div className='wizard-container'>
-        <input onChange={(e) => this.handleChange(e.target.value, 'mortgage')} value={this.state.mortgage} placeholder='Monthly Mortgage Amount'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'rent')} value={this.state.rent} placeholder='Monthly Rent'></input>
+        Monthly Mortgage Amount:
+        <input onChange={(e) => updateMortgage(e.target.value)} value={this.props.mortgage} placeholder='Monthly Mortgage Amount'></input>
+        Desired Monthly Rent:
+        <input onChange={(e) => updateRent(e.target.value)} value={this.props.rent} placeholder='Monthly Rent'></input>
         <button onClick={this.addHouse}>Submit</button>
         <button onClick={this.previousStep}>Back</button>
       </div>
@@ -43,4 +37,18 @@ class StepThree extends Component {
   }
 }
 
-export default StepThree;
+const mapStateToProps = (state) => {
+  const { name, address, city, usState, zip, img, mortgage, rent } = state;
+  return {
+    name,
+    address,
+    city,
+    usState,
+    zip,
+    img,
+    mortgage,
+    rent
+  }
+}
+
+export default connect(mapStateToProps, { updateMortgage, updateRent})(StepThree);
