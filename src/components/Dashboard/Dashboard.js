@@ -16,7 +16,7 @@ class Dashboard extends Component {
   }
 
   addNewProperty = () => {
-    this.props.history.push('/wizard');
+    this.props.history.push('/wizard/step1');
   }
 
   getHouses = () => {

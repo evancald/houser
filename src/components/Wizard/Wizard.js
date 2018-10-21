@@ -1,35 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './Wizard.css';
+import { Route, Switch } from 'react-router-dom';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
 
 class Wizard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: 99999
-    }
-  }
-
-  handleChange = (value, toUpdate) => {
-    this.setState({[toUpdate]: value});
-  }
-
-  addHouse = () => {
-    axios.post('http://localhost:8080/api/houses', {
-      name: this.state.name,
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip
-    }).then( () => {
-      this.props.history.push('/');
-    })
-
-  }
 
   cancel = () => {
     this.props.history.push('/');
@@ -40,12 +16,11 @@ class Wizard extends Component {
       <div className='wizard-container'>
         Wizard
         <button onClick={() => this.cancel()}>Cancel</button>
-        <input onChange={(e) => this.handleChange(e.target.value, 'name')} value={this.state.name} placeholder='name'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'address')} value={this.state.address} placeholder='address'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'city')} value={this.state.city} placeholder='city'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'state')} value={this.state.state} placeholder='state'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'zip')} value={this.state.zip} placeholder='zip'></input>
-        <button onClick={this.addHouse}>Complete</button>
+        <Switch>
+          <Route path='/wizard/step1'component={StepOne} />
+          <Route path='/wizard/step2' component={StepTwo} />
+          <Route path='/wizard/step3' component={StepThree} />
+        </Switch>
       </div>
     )
   }
