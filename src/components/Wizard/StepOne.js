@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Wizard.css';
 import { connect } from 'react-redux';
+import { updateName, updateAddress, updateCity, updateUsState, updateZip } from '../../ducks/reducer';
 
 class StepOne extends Component {
   constructor() {
@@ -22,16 +23,21 @@ class StepOne extends Component {
     this.props.history.push('/wizard/step2');
   }
 
-  render(props) {
-    console.log(props);
+  render() {
+    const { updateName, updateAddress, updateCity, updateUsState, updateZip } = this.props
     return (
       <div className='wizard-container'>
-        Step One
-        <input onChange={(e) => this.handleChange(e.target.value, 'name')} value={this.state.name} placeholder='name'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'address')} value={this.state.address} placeholder='address'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'city')} value={this.state.city} placeholder='city'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'usState')} value={this.state.usState} placeholder='state'></input>
-        <input onChange={(e) => this.handleChange(e.target.value, 'zip')} value={this.state.zip} placeholder='zip'></input>
+        <h3>Step One</h3>
+        Name:
+        <input onChange={(e) => updateName(e.target.value)} value={this.props.name} placeholder='name'></input>
+        Address:
+        <input onChange={(e) => updateAddress(e.target.value)} value={this.props.address} placeholder='address'></input>
+        City:
+        <input onChange={(e) => updateCity(e.target.value)} value={this.props.city} placeholder='city'></input>
+        State:
+        <input onChange={(e) => updateUsState(e.target.value)} value={this.props.usState} placeholder='state'></input>
+        Zip:
+        <input onChange={(e) => updateZip(e.target.value)} value={this.props.zip} placeholder='zip'></input>
         <button onClick={this.nextStep}>Next</button>
       </div>
     )
@@ -49,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(StepOne);
+export default connect(mapStateToProps, { updateName, updateAddress, updateCity, updateUsState, updateZip})(StepOne);
