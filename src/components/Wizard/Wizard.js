@@ -4,10 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
+import { resetState } from '../../ducks/reducer';
+import { connect } from 'react-redux';
 
 class Wizard extends Component {
 
   cancel = () => {
+    this.props.resetState();
     this.props.history.push('/');
   }
 
@@ -26,4 +29,4 @@ class Wizard extends Component {
   }
 }
 
-export default Wizard;
+export default connect(null, { resetState })(Wizard);
