@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { updateMortgage, updateRent } from '../../ducks/reducer';
+import { updateMortgage, updateRent, resetState } from '../../ducks/reducer';
 import './Wizard.css';
 
 class StepThree extends Component {
@@ -12,8 +12,12 @@ class StepThree extends Component {
       address: this.props.address,
       city: this.props.city,
       state: this.props.usState,
-      zip: this.props.zip
+      zip: this.props.zip,
+      img: this.props.img,
+      mortgage: this.props.mortgage,
+      rent: this.props.rent
     }).then( () => {
+      this.props.resetState();
       this.props.history.push('/');
     })
   }
@@ -51,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { updateMortgage, updateRent})(StepThree);
+export default connect(mapStateToProps, { updateMortgage, updateRent, resetState })(StepThree);

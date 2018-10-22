@@ -35,7 +35,7 @@ class Dashboard extends Component {
     const houses = this.state.houses.map((house, i) => {
       return(
         <div key={i}>
-          <House id={house.id} name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} deleteHouse={this.deleteHouse}/>
+          <House id={house.id} name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} img={house.img} mortgage={house.mortgage} rent={house.rent} deleteHouse={this.deleteHouse}/>
         </div>
       )
     })
