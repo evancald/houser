@@ -16,10 +16,14 @@ class StepTwo extends Component {
   render() {
     const { updateImg } = this.props;
     return (
-      <div className='wizard-container'>
+      <div className='step-inputs'>
+        <h3>Step Two</h3>
+        Image URL:
         <input onChange={(e) => updateImg(e.target.value)} value={this.props.img} placeholder='Image URL'></input>
-        <button onClick={this.nextStep}>Next</button>
-        <button onClick={this.previousStep}>Back</button>
+        <div className='nav-buttons-container'>
+          <button className='nav-button' onClick={this.previousStep}>Previous Step</button>
+          <button className='nav-button' onClick={this.nextStep}>Next Step</button>
+        </div>
       </div>
     )
   }

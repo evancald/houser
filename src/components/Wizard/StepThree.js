@@ -29,13 +29,19 @@ class StepThree extends Component {
   render() {
     const { updateMortgage,  updateRent } = this.props;
     return (
-      <div className='wizard-container'>
+      <div className='step-inputs'>
+        <h3>Step Three</h3>
+        <div>
+          Recommended Monthly Rent: ${this.props.mortgage * 1.25}
+        </div>
         Monthly Mortgage Amount:
         <input onChange={(e) => updateMortgage(e.target.value)} value={this.props.mortgage} placeholder='Monthly Mortgage Amount'></input>
         Desired Monthly Rent:
         <input onChange={(e) => updateRent(e.target.value)} value={this.props.rent} placeholder='Monthly Rent'></input>
-        <button onClick={this.addHouse}>Submit</button>
-        <button onClick={this.previousStep}>Back</button>
+        <div className='nav-buttons-container'>
+          <button className='nav-button' onClick={this.previousStep}>Previous Step</button>
+          <button className='submit-button' onClick={this.addHouse}>Submit</button>
+        </div>
       </div>
     )
   }

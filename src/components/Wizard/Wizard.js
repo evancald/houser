@@ -17,10 +17,16 @@ class Wizard extends Component {
   render() {
     return (
       <div className='wizard-container'>
-        Wizard
-        <button onClick={() => this.cancel()}>Cancel</button>
+        <div className='wizard-header'>
+          <div className='wizard-title'>
+            <h1>Add New Listing</h1>
+          </div>
+          <div>
+            <button className='cancel-button' onClick={() => this.cancel()}>Cancel</button>
+          </div>
+        </div>
         <Switch>
-          <Route path='/wizard/step1'component={StepOne} />
+          <Route path='/wizard/step1' component={StepOne} />
           <Route path='/wizard/step2' component={StepTwo} />
           <Route path='/wizard/step3' component={StepThree} />
         </Switch>

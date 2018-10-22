@@ -3,10 +3,65 @@
   margin-bottom: 125px;
   width: 50%;
   height: 100%;
+  background-color: #E5F4EC;
+}
+
+.wizard-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-content: center;
   align-items: center;
+}
+
+.wizard-title {
+  margin: 10px;
+}
+
+.cancel-button {
+    margin: 10px;
+    height: 30px;
+    width: 125px;
+    background-color: #FEC2C2;
+    font-weight: 800;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.step-inputs {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #E5F4EC;
+  align-items: center;
+  align-content: center;
+}
+
+.nav-button {
+  margin: 25px;
+  height: 30px;
+  width: 125px;
+  background-color: #3B5249;
+  color: white;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submit-button {
+  height: 30px;
+  width: 125px;
+  background-color: #8AEA92;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-buttons-container {
+  
 }

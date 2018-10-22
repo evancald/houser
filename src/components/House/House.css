@@ -1,6 +1,25 @@
 .house-container {
   margin: 5px;
-  height: 150px;
-  width: 400px;
+  height: 200px;
+  width: 600px;
   background-color: #DEDEDE;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.house-img {
+  margin: 15px;
+}
+
+.house-info {
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  align-items: left;
+  justify-content: left;
+}
+
+.delete-button {
+  
 }

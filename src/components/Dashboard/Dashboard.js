@@ -41,12 +41,19 @@ class Dashboard extends Component {
     })
     return(
       <div className='dashboard-container'>
-        <div className='dashboard-head'>
+        <div className="dashboard-header">
+          <div className="dashboard-title">
             <h2>Dashboard</h2>
+          </div>
+          <div className="dashboard-add">
             <button className='button' onClick={() => this.addNewProperty()}>Add New Property</button>
+          </div>
         </div>
-        <h2>Home Listings</h2>
-        <div>
+        <hr className='line'></hr>
+        <div className='dashboard-listings'>
+          <h2>Home Listings</h2>
+        </div>
+        <div className='dashboard-listings'>
           {houses}
         </div>
       </div>

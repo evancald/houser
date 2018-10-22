@@ -12,7 +12,7 @@ class StepOne extends Component {
   render() {
     const { updateName, updateAddress, updateCity, updateUsState, updateZip } = this.props
     return (
-      <div className='wizard-container'>
+      <div className='step-inputs'>
         <h3>Step One</h3>
         Name:
         <input onChange={(e) => updateName(e.target.value)} value={this.props.name} placeholder='name'></input>
@@ -24,7 +24,7 @@ class StepOne extends Component {
         <input onChange={(e) => updateUsState(e.target.value)} value={this.props.usState} placeholder='state'></input>
         Zip:
         <input onChange={(e) => updateZip(e.target.value)} value={this.props.zip} placeholder='zip'></input>
-        <button onClick={this.nextStep}>Next</button>
+        <button className="nav-button" onClick={this.nextStep}>Next Step</button>
       </div>
     )
   }
