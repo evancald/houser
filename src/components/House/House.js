@@ -17,8 +17,8 @@ function House(props) {
         <div>Mortgage: {mortgage}</div>
         <div>Rent: {rent}</div>
       </div>
-      <div className='delete-button'>
-        <button onClick={() => props.deleteHouse(id)}>X</button>
+      <div>
+        <button className='delete-button' onClick={() => props.deleteHouse(id)}>x</button>
       </div>
     </div>
   )

@@ -13,6 +13,7 @@
 }
 
 .house-info {
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-content: left;
@@ -21,5 +22,13 @@
 }
 
 .delete-button {
-  
+  margin-bottom: 180px;
+  margin-left: 65px;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: #DEDEDE;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 .dashboard-container {
   margin-top: 125px;
   margin-bottom: 125px;
+  padding-bottom: 100px;
   width: 60%;
   height: 100%;
   background-color: #E5F4EC;
@@ -37,6 +38,12 @@
 
 .line {
   width: 90%;
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
 }
 
 .dashboard-listings {
